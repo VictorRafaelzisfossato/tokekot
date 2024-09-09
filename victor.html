@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silverado Run Alien - Busca de Memes</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+main {
+    margin: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>Silverado Run Alien</h1>
+        <p>Seu mecanismo de busca de memes engraçados!</p>
+    </header>
+    <main>
+        <input type="text" id="searchInput" placeholder="Digite um termo de busca...">
+        <button onclick="searchMemes()">Buscar</button>
+        <div id="results"></div>
+    </main>
+    <script>
+        function searchMemes() {
+    const searchInput = document.getElementById('searchInput').value;
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+
+    if (searchInput.trim() === '') {
+        resultsDiv.innerHTML = '<p>Por favor, digite um termo de busca.</p>';
+        return;
+    }
+
+    // Simulação de resultados de busca
+    const memes = [
+        { title: 'Meme 1', url: 'https://imgflip.com/i/92whut' },
+        { title: 'Meme 2', url: 'https://imgflip.com/i/92whix' },
+        { title: 'Meme 3', url: 'https://imgflip.com/i/92wh1n' }
+    ];
+
+    memes.forEach(meme => {
+        const memeDiv = document.createElement('div');
+        memeDiv.innerHTML = `<h3>${meme.title}</h3><img src="${meme.url}" alt="${meme.title}" width="300">`;
+        resultsDiv.appendChild(memeDiv);
+    });
+}
+
+    </script>
+</body>
+</html>
